@@ -9,8 +9,6 @@ jobs:
   conda_deployment_with_new_tag:
     name: Conda deployment of package with ${{ matrix.os }} Python ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
-    env:
-        CONDA_BLD_PATH: /Users/runner/miniconda3/conda-bld
     strategy:
       matrix:
         python-version: ["3.9"]
