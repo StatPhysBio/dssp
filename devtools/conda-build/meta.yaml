@@ -27,6 +27,7 @@ requirements:
     - pip
     - cmake
     - make
+    - {{ compiler('cxx') }}
   run:
     - python_abi
 
@@ -40,3 +41,7 @@ outputs:
       - share/libcifpp/components.cif
       - share/libcifpp/mmcif_pdbx.dic
       - share/libcifpp/mmcif_ma.dic
+
+extra:
+  channels:
+    - conda-forge
