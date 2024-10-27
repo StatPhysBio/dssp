@@ -1,0 +1,41 @@
+{% set name = "dssp" %}
+
+package:
+  name: {{ name|lower }}
+  version: "{{ environ.get('GIT_DESCRIBE_TAG', 'versionNotFound') }}"
+
+source:
+  path: ../../
+
+build:
+  script: |
+    cmake -S . -B build -DCMAKE_INSTALL_PREFIX=${PREFIX}
+    cmake --build build
+    cmake --install build
+
+    mkdir -p ${PREFIX}/share/libcifpp
+
+    curl -o "${PREFIX}/share/libcifpp/components.cif" https://files.wwpdb.org/pub/pdb/data/monomers/components.cif
+    curl -o "${PREFIX}/share/libcifpp/mmcif_pdbx.dic" https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic
+    curl -o "${PREFIX}/share/libcifpp/mmcif_ma.dic" https://github.com/ihmwg/ModelCIF/raw/master/dist/mmcif_ma.dic
+
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+    - cmake
+  run:
+    - python_abi
+
+about:
+  license: BSD-2-Clause
+
+outputs:
+  - name: {{ name|lower }}
+    files:
+      - bin/mkdssp
+      - share/libcifpp/components.cif
+      - share/libcifpp/mmcif_pdbx.dic
+      - share/libcifpp/mmcif_ma.dic
