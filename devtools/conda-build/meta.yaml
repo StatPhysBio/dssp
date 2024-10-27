@@ -27,7 +27,6 @@ requirements:
     - pip
     - cmake
     - make
-    - cxx-compiler
   run:
     - python_abi
 
