@@ -9,7 +9,7 @@ source:
 
 build:
   script: |
-    cmake -S . -B build -DCMAKE_INSTALL_PREFIX=${PREFIX}
+    cmake -S . -B build -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
     cmake --build build
     cmake --install build
 
