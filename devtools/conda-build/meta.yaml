@@ -28,7 +28,6 @@ requirements:
     - cmake
     - make
     - cxx-compiler
-    - {{ compiler('cxx') }}
   run:
     - python_abi
 
