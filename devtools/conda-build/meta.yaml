@@ -27,8 +27,12 @@ requirements:
     - pip
     - cmake
     - make
+    - zlib <1.3 # pinned for pyrosetta
+    - libzlib >=1.2.13,<1.3 # pinned for pyrosetta
   run:
     - python_abi
+    - zlib <1.3 # pinned for pyrosetta
+    - libzlib >=1.2.13,<1.3 # pinned for pyrosetta
 
 about:
   license: BSD-2-Clause
