@@ -3,7 +3,10 @@ name: Build and upload conda package
 
 on:
   release:
-    types: ['released']
+    types: [released]
+
+env:
+  CONDA_SUBDIR: osx-arm64
 
 jobs:
   conda_deployment_with_new_tag:
@@ -13,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.9"]
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-12, macos-latest]
     steps:
       - uses: actions/checkout@v3
         with:
