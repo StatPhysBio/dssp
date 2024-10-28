@@ -25,7 +25,7 @@ jobs:
       - name: Conda environment creation and activation
         uses: conda-incubator/setup-miniconda@v2
         with:
-          miniconda-version: Miniconda3-latest-MacOSX-arm64.sh
+          miniconda-version: latest
           python-version: ${{ matrix.python-version }}
           environment-file: devtools/conda-envs/build_env.yaml    # Path to the build conda environment
           auto-update-conda: false
